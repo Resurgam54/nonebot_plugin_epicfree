@@ -67,7 +67,7 @@ async def query_epic_api() -> List:
     参考 RSSHub ``/epicgames`` 路由 https://github.com/DIYgod/RSSHub/blob/master/lib/v2/epicgames/index.js
     """
 
-    async with AsyncClient(proxies={"all://": None}) as client:
+    async with AsyncClient(trust_env=False) as client:
         try:
             res = await client.get(
                 "https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions",
